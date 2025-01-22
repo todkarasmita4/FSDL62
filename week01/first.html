@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forms</title>
+    <style>
+        #abc{text-align:center}
+        body{text-align:left; background-image: url('04_01_43029.jpg')}
+        h1{font-family: 'Times New Roman', Times, serif;background-color: darkolivegreen}
+        </style>
 </head>
 <body>
-    <p>first program</p>
-    <h1> This is second line</h1>
+    <h1 id="abc">BloomingDales</h1><br><br>
+    <form>Name:<input type="text"autocomplete><br><br>
+    Email:<input type="email"name="email"autofocus><br><br>
+    Phone Number:<input type="tel" name="phone" pattern="[0-9]{2}-[0-9]{10}"required <br><br><br>
+Date Of Birth:<input type="date"name="date"><br><br>
+<input type="button" value="Submit">
+</form>
 </body>
 </html>
