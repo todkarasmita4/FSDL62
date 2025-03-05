@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  font-family:'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color:midnightblue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  padding: 20px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-heading {
+  color: red;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.search-container input,
+.genre-filter select,
+button {
+  padding: 12px 16px;
+  margin: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.search-container input {
+  width: 60%;
+  max-width: 500px;
+}
+
+button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d9534f;
+}
+
+.book-list {
+  margin-top: 20px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid layout */
+  gap: 20px;
+  padding: 20px;
+}
+
+.book-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 350px; /* Fixed height for consistency */
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-info {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.book-info strong {
+  font-size: 1.3em;
+}
+
+.book-info em {
+  font-size: 1em;
+  color: #888;
+}
+
+.book-graphic {
+  width: 100%;
+  height: 100%; /* Make graphic fit in the available height */
+  background: linear-gradient(45deg, #ff9e2c, #ff6347);
+  border-radius: 10px;
+  padding: 30px 20px; /* Add padding inside the graphic */
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack the text vertically */
+  text-align: center;
+  height: 150px; /* Fixed height for the graphic design */
+}
+
+.book-graphic .book-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.book-graphic .book-author {
+  font-size: 1em;
+}
+
+.book-graphic .book-genre {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #f5f5f5;
+}
+
+.loading-spinner {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  cursor: pointer;
 }
