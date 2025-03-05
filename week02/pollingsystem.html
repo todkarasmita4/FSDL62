@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Polling System</title>
+            </head>
+            <body>
+                <h1>Vote for Your Favorite Option</h1>
+                    <form action="{{ url_for('vote') }}" method="POST">
+                            {% for option in poll_data %}
+                                        <label>
+                                                        <input type="radio" name="vote_option" value="{{ option }}">
+                                                                        {{ option }}
+                                                                                    </label><br>
+                                                                                            {% endfor %}
+                                                                                                    <br>
+                                                                                                            <button type="submit">Vote</button>
+                                                                                                                </form>
+                                                                                                                    <br>
+                                                                                                                        <a href="{{ url_for('results') }}">See Results</a>
+                                                                                                                        </body>
+                                                                                                                        </html><!DOCTYPE html>
+                                                                                                                        <html lang="en">
+                                                                                                                        <head>
+                                                                                                                            <meta charset="UTF-8">
+                                                                                                                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                                                                                    <title>Polling System</title>
+                                                                                                                                    </head>
+                                                                                                                                    <body>
+                                                                                                                                        <h1>Vote for Your Favorite Option</h1>
+                                                                                                                                            <form action="{{ url_for('vote') }}" method="POST">
+                                                                                                                                                    {% for option in poll_data %}
+                                                                                                                                                                <label>
+                                                                                                                                                                                <input type="radio" name="vote_option" value="{{ option }}">
+                                                                                                                                                                                                {{ option }}
+                                                                                                                                                                                                            </label><br>
+                                                                                                                                                                                                                    {% endfor %}
+                                                                                                                                                                                                                            <br>
+                                                                                                                                                                                                                                    <button type="submit">Vote</button>
+                                                                                                                                                                                                                                        </form>
+                                                                                                                                                                                                                                            <br>
+                                                                                                                                                                                                                                                <a href="{{ url_for('results') }}">See Results</a>
+                                                                                                                                                                                                                                                </body>
+                                                                                                                                                                                                                                                </html>
