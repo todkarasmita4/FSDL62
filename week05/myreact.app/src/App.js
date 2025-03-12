@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-// Sample books data with fictional books, including the Harry Potter series
 const booksData = [
   {
     title: 'The Great Gatsby',
@@ -78,7 +77,261 @@ const booksData = [
     author: 'J.R.R. Tolkien',
     genre: 'Fantasy',
   },
-  // Add more books as needed...
+  {
+    title: 'The Book Thief',
+    author: 'Markus Zusak',
+    genre: 'Historical Fiction',
+  },
+  {
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    genre: 'Adventure',
+  },
+  {
+    title: 'The Shining',
+    author: 'Stephen King',
+    genre: 'Horror',
+  },
+  {
+    title: 'Moby Dick',
+    author: 'Herman Melville',
+    genre: 'Classic',
+  },
+  {
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    genre: 'Classic',
+  },
+  {
+    title: 'The Outsiders',
+    author: 'S.E. Hinton',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Handmaid\'s Tale',
+    author: 'Margaret Atwood',
+    genre: 'Dystopian',
+  },
+  {
+    title: 'The Secret Garden',
+    author: 'Frances Hodgson Burnett',
+    genre: 'Classic',
+  },
+  {
+    title: 'The Godfather',
+    author: 'Mario Puzo',
+    genre: 'Crime Fiction',
+  },
+  {
+    title: 'Catch-22',
+    author: 'Joseph Heller',
+    genre: 'Satire',
+  },
+  {
+    title: 'Slaughterhouse-Five',
+    author: 'Kurt Vonnegut',
+    genre: 'Science Fiction',
+  },
+  {
+    title: 'Fahrenheit 451',
+    author: 'Ray Bradbury',
+    genre: 'Dystopian',
+  },
+  {
+    title: 'The Picture of Dorian Gray',
+    author: 'Oscar Wilde',
+    genre: 'Classic',
+  },
+  {
+    title: 'The Road',
+    author: 'Cormac McCarthy',
+    genre: 'Post-apocalyptic',
+  },
+  {
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    genre: 'Horror',
+  },
+  {
+    title: 'The Night Circus',
+    author: 'Erin Morgenstern',
+    genre: 'Fantasy',
+  },
+  {
+    title: 'The Hitchhiker\'s Guide to the Galaxy',
+    author: 'Douglas Adams',
+    genre: 'Science Fiction',
+  },
+  {
+    title: 'The Girl on the Train',
+    author: 'Paula Hawkins',
+    genre: 'Thriller',
+  },
+  {
+    title: 'The Invisible Man',
+    author: 'H.G. Wells',
+    genre: 'Science Fiction',
+  },
+  {
+    title: 'The Time Machine',
+    author: 'H.G. Wells',
+    genre: 'Science Fiction',
+  },
+  {
+    title: 'War and Peace',
+    author: 'Leo Tolstoy',
+    genre: 'Historical Fiction',
+  },
+  {
+    title: 'The Great Expectations',
+    author: 'Charles Dickens',
+    genre: 'Classic',
+  },
+  {
+    title: 'The Diary of a Young Girl',
+    author: 'Anne Frank',
+    genre: 'Biography',
+  },
+  {
+    title: 'The Grapes of Wrath',
+    author: 'John Steinbeck',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Art of War',
+    author: 'Sun Tzu',
+    genre: 'Philosophy',
+  },
+  {
+    title: 'The Fault in Our Stars',
+    author: 'John Green',
+    genre: 'Romance',
+  },
+  {
+    title: 'Gone with the Wind',
+    author: 'Margaret Mitchell',
+    genre: 'Historical Fiction',
+  },
+  {
+    title: 'Wuthering Heights',
+    author: 'Emily Brontë',
+    genre: 'Classic',
+  },
+  {
+    title: 'The Bell Jar',
+    author: 'Sylvia Plath',
+    genre: 'Fiction',
+  },
+  {
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    genre: 'Dystopian',
+  },
+  {
+    title: 'To the Lighthouse',
+    author: 'Virginia Woolf',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+    author: 'C.S. Lewis',
+    genre: 'Fantasy',
+  },
+  {
+    title: 'The Road to Serfdom',
+    author: 'Friedrich Hayek',
+    genre: 'Non-fiction',
+  },
+  {
+    title: 'The Fountainhead',
+    author: 'Ayn Rand',
+    genre: 'Philosophy',
+  },
+  {
+    title: 'A Tale of Two Cities',
+    author: 'Charles Dickens',
+    genre: 'Classic',
+  },
+  {
+    title: 'Animal Farm',
+    author: 'George Orwell',
+    genre: 'Dystopian',
+  },
+  {
+    title: 'Lord of the Flies',
+    author: 'William Golding',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Secret History',
+    author: 'Donna Tartt',
+    genre: 'Thriller',
+  },
+  {
+    title: 'The Light Between Oceans',
+    author: 'M.L. Stedman',
+    genre: 'Romance',
+  },
+  {
+    title: 'The Silent Patient',
+    author: 'Alex Michaelides',
+    genre: 'Thriller',
+  },
+  {
+    title: 'The Goldfinch',
+    author: 'Donna Tartt',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Seven Husbands of Evelyn Hugo',
+    author: 'Taylor Jenkins Reid',
+    genre: 'Romance',
+  },
+  {
+    title: 'Big Little Lies',
+    author: 'Liane Moriarty',
+    genre: 'Mystery',
+  },
+  {
+    title: 'The Night Manager',
+    author: 'John le Carré',
+    genre: 'Thriller',
+  },
+  {
+    title: 'The Seven Deaths of Evelyn Hardcastle',
+    author: 'Stuart Turton',
+    genre: 'Mystery',
+  },
+  {
+    title: 'Where the Crawdads Sing',
+    author: 'Delia Owens',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Tattooist of Auschwitz',
+    author: 'Heather Morris',
+    genre: 'Historical Fiction',
+  },
+  {
+    title: 'The Midnight Library',
+    author: 'Matt Haig',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Silent Corner',
+    author: 'Dean Koontz',
+    genre: 'Thriller',
+  },
+  {
+    title: 'The Girl with the Louding Voice',
+    author: 'Abi Daré',
+    genre: 'Fiction',
+  },
+  {
+    title: 'The Rosie Project',
+    author: 'Graeme Simsion',
+    genre: 'Romance',
+  },
 ];
 
 const genres = ['All Genres', 'Fiction', 'Dystopian', 'Fantasy', 'Adventure', 'Classic'];
@@ -88,7 +341,11 @@ const App = () => {
   const [selectedGenre, setSelectedGenre] = useState('All Genres');
   const [filteredBooks, setFilteredBooks] = useState(booksData);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 5; // Set how many books per page
+  const booksPerPage = 5;
+
+  useEffect(() => {
+    filterBooks(searchQuery, selectedGenre); // Initialize filtered books
+  }, []); // Empty array means this effect runs only once on mount
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
