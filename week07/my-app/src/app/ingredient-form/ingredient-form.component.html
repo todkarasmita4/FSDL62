@@ -1,0 +1,18 @@
+<div>
+    <h2>Enter Ingredients</h2>
+    <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
+      <label for="ingredients">Ingredients (comma-separated):</label>
+      <input id="ingredients" formControlName="ingredients" />
+      <button type="submit">Find Recipes</button>
+    </form>
+  
+    <div *ngIf="recipes.length > 0">
+      <h3>Recipe Suggestions</h3>
+      <div *ngFor="let recipe of recipes">
+        <h4>{{ recipe.title }}</h4>
+        <img [src]="recipe.image" alt="{{ recipe.title }}" width="100" />
+        <button (click)="viewDetails(recipe.id)">View Details</button>
+      </div>
+    </div>
+  </div>
+  
