@@ -1,21 +1,16 @@
+// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';  // ✅ Ensure this is imported
-import { RouterModule } from '@angular/router';  // ✅ ADD THIS LINE
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { RouterModule } from '@angular/router'; // ✅ Add this!
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  // ✅ Ensure routing module is here
-    RouterModule        // ✅ THIS FIXES YOUR ERROR
+    RouterModule.forRoot([])  // ✅ Add this too!
   ],
   providers: [],
   bootstrap: [AppComponent]
